@@ -1,11 +1,43 @@
 import React from "react";
 import '../App.css'
 
-const Ip = (props) => {
+function Ip() {
+
+    const [convKg, setConvKg] = React.useState('');
+    const [convGram, setConvGram] = React.useState('');
+    const [convOunce, setConvOunce] = React.useState('');
+    
+    
+   
+    const onResultChange =(event)=>{
+     // if(setConvKg=== setConvGram === setConvOunce==('')){
+      //  event.target.value = 0
+      //}
+      setConvKg(parseFloat(event.target.value))
+      setConvGram(parseFloat(event.target.value)/1000)
+      setConvOunce(parseFloat(event.target.value)/76.54)
+      
+      }
+      
+
     return (
       <div className="Ip">
-        <h2>{props.name}</h2>        
-        <p>:{props.cons}</p>
+        <input type="number" placeholder='Enter Pounds..' id='ibsInput' onChange ={onResultChange} /><br />
+        <div className="Kg">
+          <h2>KG</h2>        
+          <p>:{convKg}</p>
+        </div>
+
+        <div className="Gram">
+            <h2>Gram</h2>        
+            <p>:{convGram}</p>
+        </div>
+
+        <div className="Ounce">
+            <h2>Ounce</h2>        
+            <p>:{convOunce}</p>
+        </div>
+        
       </div>
     );
   }
