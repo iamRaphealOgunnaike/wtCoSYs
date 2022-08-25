@@ -10,13 +10,18 @@ function Ip() {
     
    
     const onResultChange =(event)=>{
-     // if(setConvKg=== setConvGram === setConvOunce==('')){
-      //  event.target.value = 0
-      //}
+     if(event.target.value){
       setConvKg(parseFloat(event.target.value))
       setConvGram(parseFloat(event.target.value)/1000)
       setConvOunce(parseFloat(event.target.value)/76.54)
+      }
+      else {
+        setConvKg('');
+        setConvGram('');
+        setConvOunce('');
       
+      }    
+     
       }
       
 
